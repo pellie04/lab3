@@ -3,6 +3,14 @@ import java.util.List;
 
 interface StringChecker { boolean checkString(String s); }
 
+
+class myChecker implements StringChecker{
+    public boolean checkString(String s){
+      return true;
+    }
+}
+
+
 class ListExamples {
 
   // Returns a new list that has all the elements of the input list for which
@@ -10,9 +18,11 @@ class ListExamples {
   // the same order they appeared in the input list;
   static List<String> filter(List<String> list, StringChecker sc) {
     List<String> result = new ArrayList<>();
+    int index = 0;
     for(String s: list) {
       if(sc.checkString(s)) {
-        result.add(0, s);
+        result.add(index, s);
+        index++;
       }
     }
     return result;
